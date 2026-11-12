@@ -105,13 +105,27 @@ Accuracy (%) on the official GTSRB test set, one training run per model. Weather
 glare was never seen in training. Full numbers (severities 1, 3, 5, calibration, reject analysis) are in
 `evaluation/results/`, figures in `evaluation/figures/`.
 
-<RESULTS-TABLE>
+| Run | clean | fog | night | rain | blur | noise | glare |
+|---|---|---|---|---|---|---|---|
+| resnet18_clean | 98.5 | 59.1 | 25.6 | 40.9 | 92.2 | 41.0 | 15.8 |
+| resnet18_weather | 98.8 | 89.6 | 64.1 | 90.0 | 96.1 | 86.9 | 23.0 |
+| smallcnn_clean | 99.2 | 65.8 | 14.8 | 55.9 | 95.8 | 20.2 | 15.0 |
+| smallcnn_weather | 98.9 | 92.9 | 67.1 | 96.5 | 97.2 | 89.7 | 24.5 |
+| convnext_tiny_clean | 99.3 | 82.8 | 33.8 | 67.6 | 95.5 | 63.4 | 20.4 |
+| convnext_tiny_weather | 99.4 | 94.1 | 66.6 | 94.8 | 97.2 | 88.9 | 27.0 |
 
 Main observations:
 - On clean images all six models reach 98.5-99.4%, so clean accuracy alone does not separate them.
-- Models trained only on clean images lose a lot under strong weather; weather-augmented training
-  recovers most of it for the conditions seen in training (fog, night, rain, blur, noise).
-- Glare, never seen in training, stays very hard for every model.
+- Models trained only on clean images lose a lot under strong weather (severity 5): fog 59-83%, night 15-34%,
+  rain 41-68%, noise 20-63%. Weather-augmented training recovers most of it: fog 90-94%, night 64-67%,
+  rain 90-97%, noise 87-90%. Blur hardly matters (92-97%).
+- Glare, never seen in training, stays very hard for every model (15-27% at severity 5); weather training
+  adds only about 7-10 points there.
+- Our own small CNN, trained with weather augmentation, is as robust as the pretrained ResNet-18 and
+  ConvNeXt-tiny, so the training data mattered more than the architecture here.
+- Calibration: on clean test images all models are already well calibrated (ECE at most 0.006), so temperature
+  scaling gives no consistent gain there (fitted T between 0.75 and 1.35). Under strong shift the confidence
+  becomes unreliable (for example raw ECE 0.40 for convnext_tiny_clean under glare, severity 5).
 - Each number comes from a single training run, so differences of 1-2 points should not be over-read.
 
 ## Limitations
