@@ -57,7 +57,7 @@ test set is used only for the final evaluation.
 ## Trained models (not stored in this repo)
 Weights are too large for GitHub. Download the six trained models here and unzip into `outputs/`:
 
-**<MODELS-DRIVE-LINK>**
+**https://drive.google.com/drive/folders/1nDSFJf88UsuScINdUgdvPL26UKFjeLUU?usp=sharing**
 
 Or train them yourself (below). A free Colab T4 GPU needs about 10 minutes for ResNet-18, and under an
 hour for all six models.
