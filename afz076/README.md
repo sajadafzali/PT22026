@@ -60,7 +60,8 @@ Weights are too large for GitHub. Download the six trained models here and unzip
 **https://drive.google.com/drive/folders/1nDSFJf88UsuScINdUgdvPL26UKFjeLUU?usp=sharing**
 
 Or train them yourself (below). A free Colab T4 GPU needs about 10 minutes for ResNet-18, and under an
-hour for all six models.
+hour for all six models. The app only needs `outputs/<run>/model.pt` for the runs you want to try
+(for example `resnet18_clean` and `resnet18_weather`).
 
 ## Run
 ```bash
@@ -127,6 +128,11 @@ Main observations:
   scaling gives no consistent gain there (fitted T between 0.75 and 1.35). Under strong shift the confidence
   becomes unreliable (for example raw ECE 0.40 for convnext_tiny_clean under glare, severity 5).
 - Each number comes from a single training run, so differences of 1-2 points should not be over-read.
+
+## Troubleshooting
+- If `python app.py` stops with a 502 error about localhost, a proxy or VPN is catching local traffic.
+  Run `export NO_PROXY=127.0.0.1,localhost` first (Windows Command Prompt: `set NO_PROXY=127.0.0.1,localhost`).
+- `pytest -q` runs about 60 tests on synthetic data; it can take several minutes on a slow CPU.
 
 ## Limitations
 - Trained and tested on German signs only; signs in other countries differ
