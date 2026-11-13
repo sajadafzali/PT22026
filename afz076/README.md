@@ -145,7 +145,6 @@ Main observations:
 ## Acknowledgements and references
 Pretrained ImageNet weights come from torchvision.
 
-I used an AI assistant (Claude, Anthropic) for writing and explaining the code, debugging, and guidance on the steps of this project. I ran the training and evaluation, tested the app, managed the repository, and can explain the project.
 
 - Stallkamp et al., "Man vs. computer: Benchmarking machine learning algorithms for traffic sign recognition", Neural Networks, 2012 (GTSRB)
 - He et al., "Deep Residual Learning for Image Recognition", CVPR 2016
