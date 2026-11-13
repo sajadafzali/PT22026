@@ -40,7 +40,7 @@ git clone https://github.com/xahiru/PT22026.git
 cd PT22026/afz076
 python -m venv .venv && source .venv/bin/activate     # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-pytest -q                                              # optional, about 1 minute
+pytest -q                                              # optional, a few minutes
 ```
 
 ## Dataset (not stored in this repo)
