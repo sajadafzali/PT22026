@@ -143,8 +143,10 @@ Main observations:
 - Educational project: not suitable for real driving decisions
 
 ## Acknowledgements and references
-Pretrained ImageNet weights come from torchvision. Code was written for this course project; the AI
-assistant Claude (Anthropic) was used for help with design discussion, code and debugging.
+Pretrained ImageNet weights come from torchvision.
+
+I used an AI assistant (Claude, Anthropic) for writing and explaining the code, debugging, and guidance on the steps of this project. I ran the training and evaluation, tested the app, managed the repository, and can explain the project.
+
 - Stallkamp et al., "Man vs. computer: Benchmarking machine learning algorithms for traffic sign recognition", Neural Networks, 2012 (GTSRB)
 - He et al., "Deep Residual Learning for Image Recognition", CVPR 2016
 - Liu et al., "A ConvNet for the 2020s", CVPR 2022
